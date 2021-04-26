@@ -90,7 +90,7 @@ exports.updateProduct = (req, res) => {
         err: 'Problem with Image',
       });
 
-    const product = req.product;
+    let product = req.product;
     product = _.extend(product, fields);
 
     if (file.photo) {
