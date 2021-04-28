@@ -27,7 +27,7 @@ router.get('/category/:categoryId', getCategory);
 router.get('/categories', getAllCategory);
 
 router.put(
-  '/category/:categoryId/:userId',
+  '/category/update/:categoryId/:userId',
   isSignedIn,
   isAuthenticated,
   isAdmin,
