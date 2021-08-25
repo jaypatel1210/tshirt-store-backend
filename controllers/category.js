@@ -39,8 +39,6 @@ exports.getAllCategory = (req, res) => {
 };
 
 exports.updateCategory = (req, res) => {
-  console.log('update category');
-  console.log(req.body);
   const category = req.category;
   category.name = req.body.name;
 
