@@ -67,9 +67,9 @@ exports.userPurchaseList = (req, res) => {
 };
 
 exports.pushOrderInPurchaseList = (req, res, next) => {
-  let purchases = [];
+  let purchasesList = [];
   req.body.order.products.forEach(product => {
-    purchases.push({
+    purchasesList.push({
       _id: product._id,
       name: product.name,
       description: product.description,
@@ -80,15 +80,20 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
     });
   });
 
+  console.log(`PURCHASE LIST => ${JSON.stringify(purchasesList)}`);
+
   User.findOneAndUpdate(
     { _id: req.profile._id },
-    { $push: { purchases: purchases } },
-    { new: true },
+    { $push: { purchases: purchasesList } },
+    { new: true, useFindAndModify: false },
     (err, purchases) => {
-      if (err)
+      console.log(purchases);
+      console.log(`FIND ONE AND UPDATE ERR => ${err}`);
+      if (err) {
         return res.status(400).json({
           err: 'Unable to save purchase list',
         });
+      }
       next();
     }
   );

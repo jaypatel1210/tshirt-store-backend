@@ -35,6 +35,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+// mongoose.set('useFindAndModify', false);
+
 // Routes
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);

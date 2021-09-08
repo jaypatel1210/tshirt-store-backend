@@ -25,7 +25,7 @@ const orderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: 'Received',
-      ENUM: ['Cancelled', 'Delivered', 'Shipped', 'Processing', 'Received'],
+      enum: ['Cancelled', 'Delivered', 'Shipped', 'Processing', 'Received'],
     },
     user: {
       type: ObjectId,
@@ -37,4 +37,4 @@ const orderSchema = new mongoose.Schema(
 
 const Order = mongoose.model('orderSchema', orderSchema);
 
-module.exports = { ProductCart, Order };
+module.exports = { Order, ProductCart };
