@@ -49,7 +49,7 @@ exports.signin = (req, res) => {
       });
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_TOKEN_STRING);
+    const token = jwt.sign({ _id: user._id }, 'jaypatelhere');
     res.cookie('token', token, { expire: new Date() + 99 });
 
     const { _id, name, email, role } = user;
@@ -67,7 +67,7 @@ exports.signout = (req, res) => {
 // protected route
 
 exports.isSignedIn = expressJwt({
-  secret: process.env.JWT_TOKEN_STRING,
+  secret: 'jaypatelhere',
   userProperty: 'auth',
 });
 

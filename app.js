@@ -18,11 +18,14 @@ const app = express();
 
 // DB Connection
 mongoose
-  .connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    'mongodb+srv://mern_admin:-fQ4TN%23%40KAb2aKq@merntshirt.ozado.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => {
     console.log('DB CONNECTED');
   })
